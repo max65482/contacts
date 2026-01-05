@@ -167,6 +167,7 @@
 								{{ t('contacts', 'Save') }}
 							</NcButton>
 							<NcButton
+								v-if="contact.dav"
 								variant="secondary"
 								:disabled="loadingUpdate || !isDataValid"
 								@click="onCancel">
