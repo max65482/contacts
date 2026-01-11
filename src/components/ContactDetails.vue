@@ -269,7 +269,6 @@
 			<IconLoading v-if="loadingData" :size="20" class="contact-details" />
 			<!-- quick actions -->
 			<div v-else-if="!loadingData"
-				:key="contact.key + '-' + inputKey"
 				class="contact-details-wrapper"
 				:class="[{ 'contact-details-wrapper-read-only': isReadOnly }]">
 				<!-- contact details -->
@@ -559,7 +558,6 @@ export default defineComponent({
 			calendarPanelHasError: false,
 			sharedState: reactive({ validEmail: true }),
 			lastUsedAddressBook: undefined,
-			inputKey: 0,
 		}
 	},
 
@@ -1166,8 +1164,6 @@ export default defineComponent({
 			this.newAddressBook = null
 			// Exit edit mode
 			this.editMode = false
-			// Force remount of keyed inputs/children to reset internal state
-			this.inputKey++
 		},
 
 		getLastUsedAddressBook() {
